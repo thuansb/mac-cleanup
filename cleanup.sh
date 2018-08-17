@@ -42,6 +42,15 @@ echo 'Cleanup XCode Derived Data and Archives...'
 rm -rfv ~/Library/Developer/Xcode/DerivedData/* &>/dev/null
 rm -rfv ~/Library/Developer/Xcode/Archives/* &>/dev/null
 
+echo 'Cleanup unavailable ios simmulator'
+xcrun simctl delete unavailable
+echo 'List devices'
+xcrun simctl list devices
+
+echo 'Remove cache folder'
+rm -rfv ~/Library/Cache/com.spotify.client &>/dev/null
+rm -rfv ~/Library/Cache/Yarn &>/dev/null
+
 echo 'Cleanup Homebrew Cache...'
 brew cleanup --force -s &>/dev/null
 brew cask cleanup &>/dev/null
